@@ -1,4 +1,4 @@
-This module is done to manage maintenance contracts.
+This Odoo module is done to manage maintenance contracts.
 
 	A maintenance contract is structured this way:
     -	Client
