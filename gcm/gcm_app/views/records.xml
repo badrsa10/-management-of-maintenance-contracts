@@ -1,0 +1,131 @@
+<?xml	version="1.0"?>
+
+<odoo>
+
+    <!-- Contract views -->
+    <record model="ir.ui.view" id="contract_tree">
+        <field name="name">Contracts</field>
+        <field name="model">contract.contract</field>
+        <field name="view_type">tree</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="my_seq"/>
+                <field name="client_id"/>
+                <field name="deadline_date"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="contract_form">
+        <field name="name">Contracts</field>
+        <field name="model">contract.contract</field>
+        <field name="view_type">form</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <h1>AddContract </h1>
+                    <group>
+                        <group>
+                            <field name="client_id"/>
+                            <field name="starting_date"/>
+                            <field name="deadline_date"/>
+                            <field name="object_id"/>
+                        </group>
+                        <group>
+                            <field name="payment_id"/>
+                            <field name="obligclt_id" widget="many2many_tags"/>
+                            <field name="obligpres_id" widget="many2many_tags"/>
+                            <field name="responsability_id" widget="many2many_tags"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- obligation client views -->
+    <record model="ir.ui.view" id="obligation_client_tree">
+        <field name="name">client obligations</field>
+        <field name="model">contract.obligclt</field>
+        <field name="view_type">tree</field>
+        <field name="arch" type="xml">
+            <tree>
+                    <field name="id"/>
+                    <field name="name"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="obligation_client_form">
+        <field name="name">client obligations</field>
+        <field name="model">contract.obligclt</field>
+        <field name="view_type">form</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <separator string="Add Obligation" colspan="2"/>
+                        <field name="name" string="Obligation client"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- obligation prestataire views -->
+    <record model="ir.ui.view" id="obligation_prestataire_tree">
+        <field name="name">prestataire obligations</field>
+        <field name="model">contract.obliprest</field>
+        <field name="view_type">tree</field>
+        <field name="arch" type="xml">
+            <tree>
+                    <field name="id"/>
+                    <field name="name"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="obligation_prestataire_form">
+        <field name="name">prestataire obligations</field>
+        <field name="model">contract.obliprest</field>
+        <field name="view_type">form</field>
+        <field name="arch" type="xml">
+            <form>
+               <sheet>
+                    <group>
+                        <separator string="Add Obligation" colspan="2"/>
+                        <field name="name" string="Obligation prestataire"/>
+                    </group>
+               </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Responsabilities -->
+    <record model="ir.ui.view" id="responsability_tree">
+        <field name="name">Responsabilities</field>
+        <field name="model">contract.responsability</field>
+        <field name="view_type">tree</field>
+        <field name="arch" type="xml">
+            <tree>
+                    <field name="id"/>
+                    <field name="name"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="responsability_form">
+        <field name="name">Responsabilities</field>
+        <field name="model">contract.responsability</field>
+        <field name="view_type">form</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <separator string="Add Responsability" colspan="2"/>
+                        <field name="name" string="responsabilité"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+
+</odoo>

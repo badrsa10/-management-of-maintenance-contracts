@@ -1,0 +1,146 @@
+<?xml	version="1.0"?>
+
+<odoo>
+
+	<!-- Contract action view -->
+	<record id="action_contract" model="ir.actions.act_window">
+            <field name="name">Contract</field>
+            <field name="res_model">contract.contract</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+            <!--<field name="search_object" ref="project.view_project_project_filter"/>-->
+    </record>
+
+    <!-- Object action view -->
+	<record id="action_object" model="ir.actions.act_window">
+            <field name="name">Object</field>
+            <field name="res_model">project.project</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">kanban,form</field>
+            <field name="search_object" ref="project.view_project_project_filter"/>
+    </record>
+
+	<!-- Tasks action view -->
+	<!--<record id="action_task" model="ir.actions.act_window">
+		<field name="name">Tasks</field>
+		<field name="res_model">project.task</field>
+		<field name="type">ir.actions.act_window</field>
+		&lt;!&ndash;<field name="view_type">form</field>&ndash;&gt;
+		<field name="view_mode">kanban,tree,form,calendar,pivot,graph</field>
+		<field name="search_client" ref="project.view_task_search_form"/>
+	</record>-->
+
+	<!-- Client action view -->
+	<record id="action_client" model="ir.actions.act_window">
+		<field name="name">Clients</field>
+		<field name="res_model">res.partner</field>
+		<field name="type">ir.actions.act_window</field>
+		<!--<field name="view_type">form</field>-->
+		<field name="view_mode">kanban,tree,form</field>
+		<field name="search_client" ref="base.view_res_partner_filter"/>
+	</record>
+
+	<!-- Payment action view -->
+	<record id="action_payment" model="ir.actions.act_window">
+		<field name="name">Payment</field>
+		<field name="res_model">account.payment</field>
+		<field name="type">ir.actions.act_window</field>
+		<!--<field name="view_type">form</field>-->
+		<field name="view_mode">kanban,tree,graph,form</field>
+		<field name="search_client" ref="account.view_account_payment_search"/>
+	</record>
+
+	<!-- obligation client action -->
+	<record id="action_obligation_client" model="ir.actions.act_window">
+		<field name="name">Obligation Client</field>
+		<field name="res_model">contract.obligclt</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+		<!--<field name="search_client" ref="account.view_account_payment_search"/>-->
+	</record>
+
+	<!-- obligation prestataire action -->
+	<record id="action_obligation_prestataire" model="ir.actions.act_window">
+		<field name="name">Obligation prestataire</field>
+		<field name="res_model">contract.obliprest</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+		<!--<field name="search_client" ref="account.view_account_payment_search"/>-->
+	</record>
+
+	<!-- obligation prestataire action -->
+	<record id="action_responsability" model="ir.actions.act_window">
+		<field name="name">Responsability</field>
+		<field name="res_model">contract.responsability</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+		<!--<field name="search_client" ref="account.view_account_payment_search"/>-->
+	</record>
+
+    <!-- root menu -->
+    <menuitem id="menu_root"
+			  name="Gestion des contrats de maintenance"
+	/>
+	<!-- main menus -->
+	<menuitem id="menu_contract_root"
+			  name="Contract"
+			  parent="menu_root"
+			  action="action_contract"
+			  sequence="1"
+	/>
+	<menuitem id="menu_obligations_root"
+			  name="Obligations"
+			  parent="menu_root"
+			  sequence="2"
+	/>
+	<menuitem id="menu_object_root"
+			  name="Object"
+			  parent="menu_root"
+			  sequence="3"
+	/>
+	<menuitem id="menu_client_root"
+			  name="Clients"
+			  parent="menu_root"
+			  sequence="4"
+	/>
+	<menuitem id="menu_payment_root"
+			  name="Payments"
+			  parent="menu_root"
+			  sequence="5"
+	/>
+    <!-- menus -->
+	<menuitem	id="menu_obligation_client"
+			name="Obligation client"
+			parent="menu_obligations_root"
+			action="action_obligation_client"
+	/>
+	<menuitem	id="menu_obligation_prestataire"
+			name="Obligation prestataire"
+			parent="menu_obligations_root"
+			action="action_obligation_prestataire"
+	/>
+	<menuitem	id="menu_responsability"
+			name="Responsability"
+			parent="menu_obligations_root"
+			action="action_responsability"
+	/>
+	<menuitem	id="menu_object_manage"
+			name="Add/Remove Object"
+			parent="menu_object_root"
+			action="action_object"
+	/>
+	<menuitem	id="menu_client_manage"
+			name="Add/Remove Clients"
+			parent="menu_client_root"
+			action="action_client"
+	/>
+	<menuitem	id="menu_payment_manage"
+			name="Add/Remove Payment"
+			parent="menu_payment_root"
+			action="action_payment"
+	/>
+
+</odoo>
